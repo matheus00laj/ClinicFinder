@@ -223,31 +223,7 @@ class Usuarios{
         this.estado = body.estado;
         this.cep = body.cep;
         this.confirmar = true;
-        //const verificar = async()=>{
-        //     const cpfUser = this.cpf
-        //     const emailUser = this.email
-        //     const contador = await USER.findAll()
-        //     if(cpfUser != null){
-        //     for(let i = 0; i<= contador.length; i++){
-        //         const visualizador = await USER.findByPk(i+1)
-        //         if(visualizador.cpf == cpfUser){
-        //             this.erro = mensagemErro.mensagemErroCPF
-        //             this.confirmar = false;
-        //             return
-        //         }
-        //     }}
-        //     if(emailUser != null ){
-        //     for(let i = 0; i<= contador.length; i++){
-        //         const visualizador = await USER.findByPk(i+1)
-        //         if(visualizador.email == emailUser){
-        //             this.erro = mensagemErro.mensagemErroEMAIL
-        //             this.confirmar = false;
-        //             return
-        //         }
-        //     }}
-        //     
-        // }
-        // verificar()
+        
         for(let i =0; i< this.validador.length; i++){
             if(this.validador[i] == false){
                 switch(i){
