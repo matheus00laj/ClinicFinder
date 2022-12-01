@@ -43,7 +43,11 @@ app.listen(porta, ()=>{
     console.log('ta rodando')
 })
 app.get('/', (req, res)=>{
-    res.redirect(`http://localhost:${porta}/index`)
+    if(!(logar == true)){
+        res.redirect(`http://localhost:${porta}/pagina-inicial`)
+    }else{
+        res.redirect(`http://localhost:${porta}/inicio`)
+    }
 })
 app.get('/index', (req, res)=>{
     if(enviarMensagem){
@@ -62,7 +66,7 @@ app.get('/cadastrar', (req, res)=>{
     }else{
         res.render('cadastro')
     }
-    console.log(usuarioObjeto.erro)
+    
     
 })
 
@@ -136,7 +140,7 @@ app.post('/logar', async(req, res)=>{
     if(redirect){
         return enviarMensagem = false, res.redirect(`http://localhost:${porta}/inicio`)
     }else{
-        return enviarMensagem = true, res.redirect(`http://localhost:${porta}/index`), sair = true
+        return enviarMensagem = true, res.redirect(`http://localhost:${porta}/index`), sair = true, redirect = false
     }
 })
 app.get('/perfil', (req, res)=>{
@@ -170,6 +174,13 @@ app.post('/modificar',async (req, res)=>{
     nomePessoa = req.body.nome;
     sobrenomePessoa =req.body.sobrenome
     res.redirect(`http://localhost:${porta}/perfil`)
+})
+
+app.get('/sobre', (req, res)=>{
+    res.render('sobre', {sair: !sair, logar: logar})
+})
+app.get('/pagina-inicial', (req, res)=>{
+    res.render('sobre', {sair: !sair, logar: logar})
 })
 
 function atualizarTabela(){

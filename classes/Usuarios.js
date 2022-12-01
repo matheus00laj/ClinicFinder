@@ -36,6 +36,7 @@ class Usuarios{
             for(let j = 0; j< valor.length; j++){
                 if(valor[j]==caracteres[i]){
                     this.validador.push(false);
+                    
                     return;
                 }
             }
@@ -109,6 +110,7 @@ class Usuarios{
     set rua(valor){
         if(typeof valor == undefined || valor ==""){
             this.validador.push(false);
+            
             return;
         }
         this.validador.push(true);

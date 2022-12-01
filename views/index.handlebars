@@ -14,12 +14,18 @@
           <label for="senha">Digite sua senha</label><br>
           <input name="senha" type="password" id="senha" placeholder="*****" class="w-100" required>
       </div>
+      {{#if enviarMensagem}}
       <div>
+        <p>{{mensagem}}</p>
+      </div>
+      {{/if}}
+      <div>
+        <div>
           <input type="checkbox" name="dados">
           <label for="dados">Lembrar meus dados</label>
-          <br><br>
-          <a href="recupSenha.html" >Esqueceu usuário ou senha?</a>
-          <br><br>
+        </div>
+          
+          
           <div>
               <button type="submit" class="btn btn-primary w-100 mb-3">
                   Entrar
